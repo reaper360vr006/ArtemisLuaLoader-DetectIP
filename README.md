@@ -5,48 +5,14 @@ https://github.com/user-attachments/assets/9170c696-7629-4c26-b8e5-d735e084fc01
 
 
 
-Artemis is a cross-platform Visual Novel game engine that utilizes Lua script.
+Artemis is a modified cross-platform Visual Novel game engine that uses Lua scripting, supporting platforms like Windows, Android, iOS, Web, Nintendo Switch, and PlayStation.
 
-Windows / Android / iOS / Web / Nintendo Switch / Playstation are supported.
+In this version, the system can detect the PS4's IP address, facilitating custom script loading. Most Artemis-based games automatically load a `save9999.dat` file at boot. By editing this save file, it’s possible to chain-load custom scripts directly from the save folder, following this sequence:
 
+**Game Boot** -> **Load Save File "save9999.dat"** -> **Load IET Script "inject.iet"** -> **Load Lua Script "inject.lua"**
 
+This modified setup has been successfully tested on Windows and PS4, and it’s expected to work on other platforms as well.
 
-Most of Artemis games automatically load save9999.dat file when game boots.
+The repository includes a custom save file for the PS4 game CUSA16074 (Raspberry Cube). This game was selected for convenience as an easily accessible physical disc. Other physical games compatible with Artemis include CUSA27389 (ハミダシクリエイティブ) and CUSA13303 (ノラと皇女と野良猫ハート HD). Alternatively, you can purchase a trial version through the [PlayStation Store](https://store.playstation.com/ja-jp/product/JP2551-CUSA27390_00-HAMIDASHITR00001/) to test the functionality.
 
-By loading an edited save file, we can chain-load custom scripts from the save folder.
-
-Game boots -> load savefile "save9999.dat" -> load iet script "inject.iet" -> load lua script "inject.lua"
-
-
-
-This has been tested on Windows and PS4.
-
-Pretty sure it will work on other platforms too.
-
-
-
-This repo currently contains custom save file for PS4 game CUSA16074 (Raspberry Cube).
-
-I chose this game because it was the easiest physical disc that I could obtain.
-
-There are other physcial disc games that uses Artemis such as CUSA27389 (ハミダシクリエイティブ) and CUSA13303 (ノラと皇女と野良猫ハート HD).
-
-If you have access to PS store you can just buy the trial version to test it.
-
-https://store.playstation.com/ja-jp/product/JP2551-CUSA27390_00-HAMIDASHITR00001/
-
-
-
-You might have to create custom save9999.dat file for each game.
-
-
-
-On Windows, you have access to luasocket and os.execute.
-
-However, on PS4, you have limited access. (Check comments)
-
-
-
-I will not explain how to copy PS4 save files to console.
-
-Google this yourself.
+Note that you may need to create a custom `save9999.dat` file for each game. While Windows allows full access to `luasocket` and `os.execute`, PS4 access is more restricted. For guidance on copying PS4 save files, refer to online resources.
